@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        #dice-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dice-container">
+        <span id="die1">-</span>
+        <span> + </span>
+        <span id="die2">-</span>
+        <span> = </span>
+        <span id="total">-</span>
+    </div>
+    <button id="roll-button">Roll Dice</button>
+
+    <script>
+        const die1Element = document.getElementById("die1");
+        const die2Element = document.getElementById("die2");
+        const totalElement = document.getElementById("total");
+        const rollButton = document.getElementById("roll-button");
+
+        function rollDice() {
+            const roll1 = Math.floor(Math.random() * 6) + 1;
+            const roll2 = Math.floor(Math.random() * 6) + 1;
+            const total = roll1 + roll2;
+
+            die1Element.textContent = roll1;
+            die2Element.textContent = roll2;
+            totalElement.textContent = total;
+        }
+
+        rollButton.addEventListener("click", rollDice);
+    </script>
+</body>
+</html>
